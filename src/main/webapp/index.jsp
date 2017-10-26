@@ -18,24 +18,12 @@ body {
 </head>
 <body>
     <div align="center" style="margin-top: 50px;">
-        <form action="CrunchifyServlet">
-           Id Depto:  <input type="text" name="id" size="20px"> <br>
-           Nombre Depto:  <input type="text" name="nombre" size="20px"> <br><br>
+        <form action="HelloCrunchify">
+           Correo destino:  <input type="text" name="correo"> <br>
         <input type="submit" value="submit">
         </form>
      </div>
- 
-    <%
-       if( request.getAttribute("departamentos")!=null){
-          List<Departamento> departamentos  = (List<Departamento>)request.getAttribute("departamentos");
-           for (Departamento departamento : departamentos) {
-         %>      
-         <h1> <%=departamento.getNom_departamento()%> </h1><br/> 
-         <%      
-          }
-       }
-      
-    
-    %>
+
+  
 </body>
 </html>
