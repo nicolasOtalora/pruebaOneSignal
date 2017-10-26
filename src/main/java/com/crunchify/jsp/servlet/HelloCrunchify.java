@@ -20,6 +20,8 @@ public class HelloCrunchify extends HttpServlet {
         //Se debe incluir validaciones - Lo recuerda: Gestion de Excepciones.
         
         //Listando la informacion  
+        SendMail sender = new SendMail();
+        sender.sendMail(correo);
       
        
         //Redireccionando la informacion
