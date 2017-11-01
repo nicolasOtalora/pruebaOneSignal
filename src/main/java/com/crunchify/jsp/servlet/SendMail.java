@@ -37,6 +37,7 @@ public class SendMail {
             message.addRecipient(
                     Message.RecipientType.TO,
                     new InternetAddress(toAdd));
+            message.addHeader("Disposition-Notification-To", "appumartsw@gmail.com");
             message.setSubject("Verificación de cuenta");
             message.setText("Tu código: "+this.cod,"ISO-8859-1");
 
