@@ -38,7 +38,7 @@ public class SendMail {
                     Message.RecipientType.TO,
                     new InternetAddress(toAdd));
             message.setSubject("Verificación de cuenta");
-            message.setText("Tu código: "+this.cod);
+            message.setText("Tu código: "+this.cod,"ISO-8859-1");
 
             // Lo enviamos.
             Transport t = session.getTransport("smtp");
