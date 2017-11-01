@@ -6,19 +6,19 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 
 /**
  * @author Crunchify.com
  */
 public class HelloCrunchify extends HttpServlet {
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // reading the user input
-
-        
-            String correo = request.getParameter("correo");
+          String correo = request.getParameter("correo");
             System.out.println("holaalalalallala");
 
             //Se debe incluir validaciones - Lo recuerda: Gestion de Excepciones.
@@ -30,6 +30,6 @@ public class HelloCrunchify extends HttpServlet {
             RequestDispatcher redireccion = request.getRequestDispatcher("index.jsp");
             redireccion.forward(request, response);
         
-
     }
+
 }
