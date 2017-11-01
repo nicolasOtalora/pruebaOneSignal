@@ -13,9 +13,11 @@ import javax.servlet.RequestDispatcher;
  */
 public class HelloCrunchify extends HttpServlet {
     
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         response.setContentType("text/html;charset=UTF-8");
 
           String correo = request.getParameter("correo");

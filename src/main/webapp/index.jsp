@@ -16,7 +16,7 @@ body {
 </head>
 <body>
     <div align="center" style="margin-top: 50px;">
-        <form action="HelloCrunchify">
+        <form action="CrunchifyServlet">
            Correo destino:  <input type="text" name="correo"> <br>
         <input type="submit" value="submit">
         </form>
