@@ -20,9 +20,9 @@ public class SendMail {
     private String cod;
     private static final String SMTP_HOST_NAME = "smtp.sendgrid.net";
 
-    private static final String SMTP_AUTH_USER = System.getenv("");
+    private static final String SMTP_AUTH_USER = System.getenv("SENDGRID_USERNAME");
 
-    private static final String SMTP_AUTH_PWD  = System.getenv("");
+    private static final String SMTP_AUTH_PWD  = System.getenv("SENDGRID_PASSWORD");
 
     public SendMail() {
         this.cod = Integer.toString((int) Math.floor(Math.random() * (1000000 - 100000 + 1) + (100000)));
