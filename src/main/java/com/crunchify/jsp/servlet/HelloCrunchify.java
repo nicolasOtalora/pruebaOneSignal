@@ -29,7 +29,7 @@ public class HelloCrunchify extends HttpServlet {
             //Listando la informacion  
 //            SendMail sender = new SendMail();
         try {
-            SendMail.send("nicolas.otalora@correo.usa.edu.co",correo,"Prueba de correo","<h1>Sirvió el correoooo hptaaaas</h1>");
+            SendMail.send("appumartsw@gmail.com",correo,"Prueba de correo","<h1>Sirvió el correoooo hptaaaas</h1>");
         } catch (Exception ex) {
             Logger.getLogger(HelloCrunchify.class.getName()).log(Level.SEVERE, null, ex);
         }
