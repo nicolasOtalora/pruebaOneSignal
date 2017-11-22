@@ -20,6 +20,7 @@ body {
            Correo destino:  <input type="text" name="correo"> <br>
         <input type="submit" value="submit">
         </form>
+        
      </div>
 
   

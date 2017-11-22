@@ -1,68 +1,66 @@
 package com.crunchify.jsp.servlet;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Properties;
-import java.util.Random;
-import javax.mail.Authenticator;
-import javax.mail.BodyPart;
+import java.util.Scanner;
 
-import javax.mail.Message;
-import javax.mail.Multipart;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
+
+
 
 public class SendNotification {
-
-    private String contents = "{ "
-            + "\"app_id\"            : \"xxxxx\", "
-            + "\"contents\"            : {\"en\" : \"Java test\"}, "
-            + "\"isAndroid\"         : false, "
-            + "\"url\"               : \"http://www.google.es\", "
-            + "\"included_segments\" : [ \"All\" ] "
-            + "}";
-    private String url = "https://onesignal.com/";
-    private String method = "POST";
-    private String contentType = "application/json";
+    String id =System.getenv("ONESIGNAL_ID");
+    String key =System.getenv("ONESIGNAL_KEY");
+    
 
     public void send() throws Exception {
 
-        URL u = new URL(url);
-        HttpURLConnection conn = (HttpURLConnection) u.openConnection();
-        conn.setRequestMethod(method);
-        conn.setRequestProperty("Content-Type", contentType);
-        conn.setRequestProperty("Content-Length", "" + contents.length());
-        conn.setUseCaches(false);
-        conn.setDoInput(true);
-        conn.setDoOutput(true);
+        try {
+            String jsonResponse;
 
-        conn.setRequestProperty("Authorization", "Basic " + "xxxxx");
+            URL url = new URL("https://onesignal.com/api/v1/notifications");
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setUseCaches(false);
+            con.setDoOutput(true);
+            con.setDoInput(true);
 
-        OutputStream os = conn.getOutputStream();
-        DataOutputStream wr = new DataOutputStream(os);
-        wr.writeBytes(contents);
-        wr.flush();
-        wr.close();
+            con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+            con.setRequestProperty("Authorization", "Basic "+key);
+            con.setRequestMethod("POST");
 
-        InputStream is = conn.getInputStream();
-        BufferedReader rd = new BufferedReader(new InputStreamReader(is));
-        String line;
-        StringBuffer response = new StringBuffer();
-        while ((line = rd.readLine()) != null) {
-            response.append(line);
-            response.append('\r');
+            String strJsonBody = "{"
+                    + "\"app_id\": \""+id+"\","
+                    + "\"included_segments\": [\"All\"],"
+                    + "\"data\": {\"foo\": \"bar\"},"
+                    + "\"contents\": {\"en\": \"English Message\"}"
+                    + "}";
+
+            System.out.println("strJsonBody:\n" + strJsonBody);
+
+            byte[] sendBytes = strJsonBody.getBytes("UTF-8");
+            con.setFixedLengthStreamingMode(sendBytes.length);
+
+            OutputStream outputStream = con.getOutputStream();
+            outputStream.write(sendBytes);
+
+            int httpResponse = con.getResponseCode();
+            System.out.println("httpResponse: " + httpResponse);
+
+            if (httpResponse >= HttpURLConnection.HTTP_OK
+                    && httpResponse < HttpURLConnection.HTTP_BAD_REQUEST) {
+                Scanner scanner = new Scanner(con.getInputStream(), "UTF-8");
+                jsonResponse = scanner.useDelimiter("\\A").hasNext() ? scanner.next() : "";
+                scanner.close();
+            } else {
+                Scanner scanner = new Scanner(con.getErrorStream(), "UTF-8");
+                jsonResponse = scanner.useDelimiter("\\A").hasNext() ? scanner.next() : "";
+                scanner.close();
+            }
+            System.out.println("jsonResponse:\n" + jsonResponse);
+
+        } catch (Throwable t) {
+            t.printStackTrace();
         }
-        rd.close();
 
     }
 
