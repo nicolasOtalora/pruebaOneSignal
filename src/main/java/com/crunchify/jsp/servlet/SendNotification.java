@@ -33,7 +33,7 @@ public class SendNotification {
                  //   + "\"included_segments\": [\"All\"],"
                     + "\"included_segments\": [\"Active Users\"],"
                     + "\"data\": {\"foo\": \"bar\"},"
-                    + "\"contents\": {\"es\": \"¡Tienes nuevos pedidos!\"}"
+                    + "\"contents\": {\"en\": \"¡Tienes nuevos pedidos!\"}"
                     + "}";
 
             System.out.println("strJsonBody:\n" + strJsonBody);
