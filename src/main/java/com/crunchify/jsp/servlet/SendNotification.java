@@ -36,7 +36,7 @@ public class SendNotification {
                     + "\"included_segments\": [\"Active Users\"],"
                   //  +   "\"filters\": [{\"field\": \"tag\", \"key\": \""+valor+"\", \"relation\": \"=\", \"value\": \"1100\"}],"
                     + "\"data\": {\"foo\": \"bar\"},"
-                  //  + "\"template_id\": [\"34409a1a-2eb3-486b-ae9f-a8f49852c8cb\"],"//plantilla realizada en el dashboard de onesignal
+                    + "\"template_id\": \"34409a1a-2eb3-486b-ae9f-a8f49852c8cb\","//plantilla realizada en el dashboard de onesignal
                     + "\"contents\": {\"en\": \"¡Tienes nuevos pedidos!\"}"
                     
                     + "}";
