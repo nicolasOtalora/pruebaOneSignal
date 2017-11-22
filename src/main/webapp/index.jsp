@@ -17,7 +17,7 @@ body {
   <script>
     var OneSignal = window.OneSignal || [];
     OneSignal.push(["init", {
-      appId: "<%System.getenv("ONESIGNAL_ID")%>",
+      appId: "<%=System.getenv("ONESIGNAL_ID")%>",
       autoRegister: false,
       notifyButton: {
         enable: true /* Set to false to hide */
