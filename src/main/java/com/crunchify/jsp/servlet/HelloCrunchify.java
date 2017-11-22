@@ -22,7 +22,6 @@ public class HelloCrunchify extends HttpServlet {
         
         response.setContentType("text/html;charset=UTF-8");
 
-          String correo = request.getParameter("correo");
             System.out.println("holaalalalallala");
 
             //Se debe incluir validaciones - Lo recuerda: Gestion de Excepciones.
