@@ -24,7 +24,7 @@ body {
       }
     }]);
   </script>
-<title>Crunchify JSP Servlet Example</title>
+<title>AppuMart:</title>
 </head>
 <body>
     <div align="center" style="margin-top: 50px;">
