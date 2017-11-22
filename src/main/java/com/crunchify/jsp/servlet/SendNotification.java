@@ -11,9 +11,9 @@ import java.util.Scanner;
 public class SendNotification {
     private String id =System.getenv("ONESIGNAL_ID");
     private String key =System.getenv("ONESIGNAL_KEY");
-    
 
-    public void send() throws Exception {
+
+    public void send(String valor) throws Exception {
 
         try {
             String jsonResponse;
@@ -28,10 +28,13 @@ public class SendNotification {
             con.setRequestProperty("Authorization", "Basic "+key);
             con.setRequestMethod("POST");
 
+            
+
             String strJsonBody = "{"
                     + "\"app_id\": \""+id+"\","
                  //   + "\"included_segments\": [\"All\"],"
-                    + "\"included_segments\": [\"Active Users\"],"
+                 //   + "\"included_segments\": [\"Active Users\"],"
+                    +   "\"filters\": [{\"field\": \"tag\", \"key\": \""+valor+"\", \"relation\": \"=\", \"value\": \"1100\"},"
                     + "\"data\": {\"foo\": \"bar\"},"
                     + "\"contents\": {\"en\": \"¡Tienes nuevos pedidos!\"}"
                     + "}";

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpSession;
 
 /**
  * @author Crunchify.com
@@ -23,13 +24,14 @@ public class HelloCrunchify extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
             System.out.println("holaalalalallala");
+            
 
             //Se debe incluir validaciones - Lo recuerda: Gestion de Excepciones.
             //Listando la informacion  
 //            SendMail sender = new SendMail();
             SendNotification sender = new SendNotification();
         try {
-            sender.send();
+            sender.send(request.getParameter("clave"));
         } catch (Exception ex) {
             Logger.getLogger(HelloCrunchify.class.getName()).log(Level.SEVERE, null, ex);
         }
