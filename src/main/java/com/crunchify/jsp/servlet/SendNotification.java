@@ -9,8 +9,8 @@ import java.util.Scanner;
 
 
 public class SendNotification {
-    String id =System.getenv("ONESIGNAL_ID");
-    String key =System.getenv("ONESIGNAL_KEY");
+    private String id =System.getenv("ONESIGNAL_ID");
+    private String key =System.getenv("ONESIGNAL_KEY");
     
 
     public void send() throws Exception {
