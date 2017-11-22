@@ -30,7 +30,8 @@ public class SendNotification {
 
             String strJsonBody = "{"
                     + "\"app_id\": \""+id+"\","
-                    + "\"included_segments\": [\"All\"],"
+                 //   + "\"included_segments\": [\"All\"],"
+                    + "\"included_segments\": [\"Active Users\"],"
                     + "\"data\": {\"foo\": \"bar\"},"
                     + "\"contents\": {\"en\": \"English Message\"}"
                     + "}";
