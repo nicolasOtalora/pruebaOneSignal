@@ -29,7 +29,7 @@ body {
 <body>
     <div align="center" style="margin-top: 50px;">
         <form action="CrunchifyServlet">
-        <input type="submit" value="mostrar>"
+            <input type="submit" value="mostrar">
         </form>
         
      </div>
