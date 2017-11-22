@@ -33,7 +33,7 @@ public class SendNotification {
                  //   + "\"included_segments\": [\"All\"],"
                     + "\"included_segments\": [\"Active Users\"],"
                     + "\"data\": {\"foo\": \"bar\"},"
-                    + "\"contents\": {\"en\": \"English Message\"}"
+                    + "\"contents\": {\"en\": \"You have some pending orders!\"}"
                     + "}";
 
             System.out.println("strJsonBody:\n" + strJsonBody);
