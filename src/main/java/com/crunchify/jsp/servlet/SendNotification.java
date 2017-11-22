@@ -34,7 +34,7 @@ public class SendNotification {
                     + "\"app_id\": \""+id+"\","
                  //   + "\"included_segments\": [\"All\"],"
                  //   + "\"included_segments\": [\"Active Users\"],"
-                    +   "\"filters\": [{\"field\": \"tag\", \"key\": \""+valor+"\", \"relation\": \"==\", \"value\": \"1100\"}],"
+                    +   "\"filters\": [{\"field\": \"tag\", \"key\": \""+valor+"\", \"relation\": \"=\", \"value\": \"1100\"}],"
                     + "\"data\": {\"foo\": \"bar\"},"
                     + "\"contents\": {\"en\": \"¡Tienes nuevos pedidos!\"}"
                     + "}";
