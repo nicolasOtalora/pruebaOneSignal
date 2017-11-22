@@ -31,7 +31,7 @@ public class HelloCrunchify extends HttpServlet {
 //            SendMail sender = new SendMail();
             SendNotification sender = new SendNotification();
         try {
-            sender.send(request.getParameter("clave"));
+            sender.send();
         } catch (Exception ex) {
             Logger.getLogger(HelloCrunchify.class.getName()).log(Level.SEVERE, null, ex);
         }

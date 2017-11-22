@@ -13,7 +13,7 @@ public class SendNotification {
     private String key =System.getenv("ONESIGNAL_KEY");
 
 
-    public void send(String valor) throws Exception {
+    public void send() throws Exception {
 
         try {
             String jsonResponse;
@@ -33,10 +33,12 @@ public class SendNotification {
             String strJsonBody = "{"
                     + "\"app_id\": \""+id+"\","
                  //   + "\"included_segments\": [\"All\"],"
-                 //   + "\"included_segments\": [\"Active Users\"],"
-                    +   "\"filters\": [{\"field\": \"tag\", \"key\": \""+valor+"\", \"relation\": \"=\", \"value\": \"1100\"}],"
+                    + "\"included_segments\": [\"Active Users\"],"
+                  //  +   "\"filters\": [{\"field\": \"tag\", \"key\": \""+valor+"\", \"relation\": \"=\", \"value\": \"1100\"}],"
                     + "\"data\": {\"foo\": \"bar\"},"
+                    + "\"template_id\": [\"34409a1a-2eb3-486b-ae9f-a8f49852c8cb\"],"//plantilla realizada en el dashboard de onesignal
                     + "\"contents\": {\"en\": \"¡Tienes nuevos pedidos!\"}"
+                    
                     + "}";
 
             System.out.println("strJsonBody:\n" + strJsonBody);

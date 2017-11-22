@@ -29,9 +29,7 @@
     <body>
         <div align="center" style="margin-top: 50px;">
             <form action="CrunchifyServlet">
-                Clave:  <input type="text" name="clave"> <br>
                 <input type="submit" value="mostrar"><br>
-                <h6>La noificación solo se muestra si la clave es 1100</h6>
                 
             </form>
 
