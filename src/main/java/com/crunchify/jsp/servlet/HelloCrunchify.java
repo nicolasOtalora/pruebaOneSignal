@@ -28,8 +28,9 @@ public class HelloCrunchify extends HttpServlet {
             //Se debe incluir validaciones - Lo recuerda: Gestion de Excepciones.
             //Listando la informacion  
 //            SendMail sender = new SendMail();
+            SendNotification sender = new SendNotification();
         try {
-            SendMail.send("nicotalora@hotmail.com",correo,"Prueba de correo","<h1>Sirvió el correoooo hptaaaas</h1>");
+            sender.send();
         } catch (Exception ex) {
             Logger.getLogger(HelloCrunchify.class.getName()).log(Level.SEVERE, null, ex);
         }
